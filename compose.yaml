@@ -6,7 +6,7 @@ services:
     volumes:
       - ./firebase.json:/firebase.json:ro
     env_file:
-      - .env.development
+      - .env
     ports:
       - "4000:4000" # Emulator UI
       - "8080:8080" # Firestore
