@@ -1,0 +1,15 @@
+services:
+  firebase:
+    build:
+      context: .
+      dockerfile: docker/firebase-emulator.Dockerfile
+    volumes:
+      - ./firebase.json:/firebase.json:ro
+    env_file:
+      - .env.development
+    ports:
+      - "4000:4000" # Emulator UI
+      - "8080:8080" # Firestore
+    command: >
+      sh -c "firebase emulators:start --only firestore --project $$VITE_PROJECT_ID
+      --config /firebase.json"
