@@ -41,6 +41,6 @@ jobs:
         run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > "$RUNNER_TEMP/firebase-service-account.json"
 
       - name: Deploy to Firebase Hosting
-        run: pnpm dlx firebase-tools@latest deploy --only hosting --project memoirai-48e8e --non-interactive
+        run: pnpm dlx firebase-tools@latest deploy --only hosting --project golden-week-hackathon --non-interactive
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-service-account.json
